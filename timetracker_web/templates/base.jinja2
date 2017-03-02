@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="{{ request.locale_name }}">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="{{ 'timetracker_web:static/pyramid-16x16.png'|static_url }}">
+
+  <title>{% block subtitle %}{% endblock %} - Time Tracker</title>
+
+  <link href="//oss.maxcdn.com/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css"
+        rel="stylesheet">
+  <link href="{{ 'timetracker_web:static/theme.css'|static_url }}" rel="stylesheet">
+  <script src="//oss.maxcdn.com/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="//oss.maxcdn.com/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+  {# Breadcrumbs #}
+
+  <ol class="breadcrumb">
+    {% for obj in view.breadcrumbs() %}
+      {% if loop.last %}
+        <li class="active">{{ obj }}</li>
+      {% else %}
+        <li><a href="{{ obj|resource_url }}">{{ obj }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ol>
+
+  {# Content Well #}
+
+  <div class="content">
+    {% block content %}{% endblock content %}
+  </div>
+
+</div>
+
+</body>
+</html>

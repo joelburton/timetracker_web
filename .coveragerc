@@ -1,0 +1,3 @@
+[run]
+source = timetracker_web
+omit = timetracker_web/test*

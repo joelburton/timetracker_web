@@ -1,0 +1,31 @@
+{% extends 'base.jinja2' %}
+
+{% block content %}
+
+  <h1>{{ cat }}</h1>
+
+  <div>{{ cat.description }}</div>
+
+  {% if categories %}
+    <h2>Categories</h2>
+    <ul>
+      {% for subcat in categories %}
+        <li><a href="{{ subcat|resource_url }}">{{ subcat }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if tasks %}
+    <h2>Tasks</h2>
+    <ul>
+      {% for task in tasks %}
+        <li><a href="{{ task|resource_url }}">{{ task }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  <a class="btn btn-primary" href="{{ cat|resource_url('@@edit') }}">Edit</a>
+  <a class="btn btn-primary" href="{{ cat|resource_url('@@add-category') }}">Add Category</a>
+  <a class="btn btn-primary" href="{{ cat|resource_url('@@add-task') }}">Add Task</a>
+
+{% endblock %}

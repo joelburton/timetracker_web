@@ -1,0 +1,13 @@
+{% extends 'base.jinja2' %}
+
+{% block content %}
+
+  <h1>{{ task }}</h1>
+
+  <p>{{ task.description }}</p>
+
+  <p>Minutes: {{ task.mins }}</p>
+
+  <a class="btn btn-primary" href="{{ task|resource_url('@@edit') }}">Edit</a>
+
+{% endblock %}
